@@ -1,21 +1,10 @@
 # basic_websocket
-var app = require ('express') ();
-var http = require('http').createServer (app);
-var io = require('socket.io') (http);
 
-app.get ('/', (req, res) => {
-    res.sendFile(__dirname +'/index.html');
-});
-
-io.on ('connection', (socket) =>{
-    // socket.broadcast.emit ('hi');
-    socket.on('chat message', (msg) => {
-        io.emit('chat message', msg);
-    console.log('a user connected');
-    });
-    socket.on('disconnect', () => {
-        console.log('user disconnected')
-    })
-});
-
-http.listen(3000, () => {console.log('listening on * : 3000'); });
+Things to try to do.
+누군가 연결하거나 연결을 끊을 때 연결된 사용자에게 메시지를 브로드 캐스트합니다.
+별명에 대한 지원을 추가합니다.
+메시지를 보낸 사용자에게 동일한 메시지를 보내지 마십시오. 대신 Enter를 누르는 즉시 메시지를 직접 추가하십시오.
+"{사용자}가 입력 중입니다"기능을 추가합니다.
+누가 온라인 상태인지 보여주세요.
+비공개 메시지를 추가합니다.
+개선 사항을 공유하십시오!
